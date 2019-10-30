@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/grafico_navegacion"
+    app:startDestination="@id/escritorio_fragment">
+    <fragment
+        android:id="@+id/reportes_fragment"
+        android:name="com.example.sasistencia.ReportesFragment"
+        android:label="fragment_reportes"
+        tools:layout="@layout/fragment_reportes" />
+    <fragment
+        android:id="@+id/alumnos_fragment"
+        android:name="com.example.sasistencia.AlumnosFragment"
+        android:label="fragment_alumnos"
+        tools:layout="@layout/fragment_alumnos" />
+    <fragment
+        android:id="@+id/mensajes_fragment"
+        android:name="com.example.sasistencia.MensajesFragment"
+        android:label="fragment_mensajes"
+        tools:layout="@layout/fragment_mensajes" />
+    <fragment
+        android:id="@+id/escritorio_fragment"
+        android:name="com.example.sasistencia.EscritorioFragment"
+        android:label="fragment_escritorio"
+        tools:layout="@layout/fragment_escritorio" />
+</navigation>

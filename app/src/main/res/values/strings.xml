@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">SAsistencia</string>
+    <string name="pedir_carrera">Seleccionar Una Carrera</string>
+    <string-array name="lista_carreras">
+        <item>Básico</item>
+        <item>Bachillerato</item>
+        <item>Magisterio</item>
+    </string-array>
+
+    <string name="pedir_grado"></string>
+    <string-array name="lista_basicos">
+        <item>Primero</item>
+        <item>Segundo</item>
+        <item>Tercero</item>
+    </string-array>
+    <string-array name="lista_bachilleratos">
+        <item>Cuarto</item>
+        <item>Quinto</item>
+    </string-array>
+    <string-array name="lista_magisterios">
+        <item>Cuarto</item>
+        <item>Quinto</item>
+        <item>Sexto</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

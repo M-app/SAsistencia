@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "318787751492",
+    "firebase_url": "https://frasescelebres-e05cc.firebaseio.com",
+    "project_id": "frasescelebres-e05cc",
+    "storage_bucket": "frasescelebres-e05cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:318787751492:android:d388af4d192d3c449c3611",
+        "android_client_info": {
+          "package_name": "com.example.sasistencia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "318787751492-qrbmmja3s34jv7gu6lm7gefitc1n64ii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNlxpd6x-1s0caQ7ITB4sW0aRfeeAOEpM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "318787751492-qrbmmja3s34jv7gu6lm7gefitc1n64ii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
