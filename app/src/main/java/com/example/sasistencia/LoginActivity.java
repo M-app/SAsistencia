@@ -35,6 +35,10 @@ public class LoginActivity extends AppCompatActivity {
     // Firebase
     FirebaseAuth mAuth;
     DatabaseReference maestrosRef;
+    DatabaseReference maestroRef;
+
+    String mRolMaestro = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //firebase
         mAuth = FirebaseAuth.getInstance();
+
 
 
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         maestrosRef = FirebaseDatabase.getInstance().getReference("maestros");
+
     }
 
     @Override
@@ -67,7 +73,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser usuarioActual = mAuth.getCurrentUser();
         if(usuarioActual != null){
-            abrirActivityMain();
+            maestroRef = maestrosRef.child(getEmailArreglado(mAuth.getCurrentUser().getEmail()));
+            maestroRef.addValueEventListener(maestroListener);
         }
     }
 
@@ -90,11 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             progressBarLogin.setVisibility(View.GONE);
-                            String email = mAuth.getCurrentUser()
-                                    .getEmail()
-                                    .replace("@","-")
-                                    .replace(".","_");
-                            DatabaseReference maestroRef = maestrosRef.child(email);
+                            maestroRef = maestrosRef.child(getEmailArreglado(mAuth.getCurrentUser().getEmail()));
                             maestroRef.addValueEventListener(maestroListener);
                         }else{
                             Toast.makeText(getApplicationContext(),
@@ -107,14 +110,20 @@ public class LoginActivity extends AppCompatActivity {
         );
     }
 
+    private String getEmailArreglado(String email){
+        return email
+                .replace("@","-")
+                .replace(".","_");
+    }
+
     ValueEventListener maestroListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             Maestro maestro = dataSnapshot.getValue(Maestro.class);
-            Log.v("ROL MAESTRO",maestro.rol);
-            if (maestro.getRol().equals("docente")){
+            mRolMaestro = maestro.getRol();
+            if (mRolMaestro.equals("docente")){
                 abrirActivityMain();
-            }else if (maestro.getRol().equals("administrador")){
+            }else if (mRolMaestro.equals("administrador")){
                 abrirActivityAdmin();
             }
         }

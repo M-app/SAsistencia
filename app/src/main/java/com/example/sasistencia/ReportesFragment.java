@@ -2,6 +2,7 @@ package com.example.sasistencia;
 
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -38,6 +39,7 @@ public class ReportesFragment extends Fragment{
 
     private TextView txtFecha;
     private Button btnCambiarFecha;
+    private Button btnCrearReporte;
 
     private String mFecha = "";
 
@@ -58,18 +60,20 @@ public class ReportesFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         reportesRef = FirebaseDatabase.getInstance().getReference("reportes/"+getFechaHoyGuiones());
-        mFecha = DateFormat.getDateInstance(DateFormat.SHORT).format(Calendar.getInstance().getTime());
+        mFecha = DateFormat.getDateInstance(DateFormat.FULL).format(Calendar.getInstance().getTime());
+
         View view = inflater.inflate(R.layout.fragment_reportes, container, false);
 
         txtFecha = view.findViewById(R.id.txt_reporte_fecha);
         txtFecha.setText("Reporte " + mFecha);
 
-        btnCambiarFecha = view.findViewById(R.id.btn_cambiar_fecha_reporte);
-        btnCambiarFecha.setOnClickListener(new View.OnClickListener() {
+
+        btnCrearReporte = view.findViewById(R.id.btn_crear_reporte);
+        btnCrearReporte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogFragment f = new DatePickerFragment();
-                f.show(getActivity().getSupportFragmentManager(),"Date Picker");
+                Intent intent = new Intent(getActivity(),MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -93,6 +97,8 @@ public class ReportesFragment extends Fragment{
         return view;
     }
 
+
+
     ValueEventListener gradosListener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -103,7 +109,6 @@ public class ReportesFragment extends Fragment{
                 Reporte reporte = snapshot.getValue(Reporte.class);
                 reportes.add(reporte);
             }
-
             mListaReportes.setAdapter(mAdapter);
         }
         @Override
@@ -114,6 +119,4 @@ public class ReportesFragment extends Fragment{
         String fechaActual = DateFormat.getDateInstance(DateFormat.SHORT).format(Calendar.getInstance().getTime());
         return fechaActual.replace("/","-");
     }
-
-
 }

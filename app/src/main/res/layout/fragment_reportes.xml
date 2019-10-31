@@ -8,30 +8,15 @@
     android:padding="16dp"
     android:background="@android:color/white">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/txt_reporte_fecha"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/txt_reporte_fecha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reporte "
-            android:textColor="@color/negro"
-            android:textSize="24sp"
-            android:layout_marginRight="16dp"
-            android:textStyle="bold"/>
-
-        <Button
-            android:id="@+id/btn_cambiar_fecha_reporte"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cambiar Fecha"
-            android:textColor="@color/colorAccent"
-            android:background="@drawable/boton_redondeado_blanco"
-            android:layout_weight="1"/>
-    </LinearLayout>
+        android:text="Reporte "
+        android:textColor="@color/negro"
+        android:textSize="24sp"
+        android:layout_marginRight="16dp"
+        android:textStyle="bold"/>
 
     <ListView
         android:id="@+id/lista_reportes"
@@ -40,4 +25,13 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/item_reporte_asistencia"
         android:layout_weight="1"></ListView>
+
+    <Button
+        android:id="@+id/btn_crear_reporte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_redondeado_blanco"
+        android:text="Crear Reporte"
+        android:textColor="@color/negro"
+        android:layout_marginTop="8dp"/>
 </LinearLayout>

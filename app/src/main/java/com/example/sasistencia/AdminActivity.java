@@ -1,19 +1,30 @@
 package com.example.sasistencia;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import android.widget.DatePicker;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class AdminActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+import java.text.DateFormat;
+import java.util.Calendar;
 
+public class AdminActivity extends AppCompatActivity {
+
+    // FECHA PARA REPORTES
+    private String mFechaActualCorta = "";
+    private String mFechaActualLarga = "";
+    // FIN FECHA REPORTES
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +43,5 @@ public class AdminActivity extends AppCompatActivity implements DatePickerDialog
 
         //set content view AFTER ABOVE sequence (to avoid crash)
         this.setContentView(R.layout.activity_main);
-    }
-
-    @Override
-    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-
     }
 }
