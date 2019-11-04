@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="16dp"
+    tools:context=".DetalleAlumnoFragment">
+
+    <TextView
+        android:id="@+id/txt_detalle_alumno_clave"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edit_detalle_alumno_nombres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/negro"
+            android:textSize="24sp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/btn_detalle_alumno_editar_nombres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/editar_nombre_icono"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edit_detalle_alumno_apellidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/negro"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/btn_detalle_alumno_editar_apellidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/editar_nombre_icono"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edit_detalle_alumno_telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/negro"
+            android:textSize="24sp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/btn_detalle_alumno_editar_telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/editar_nombre_icono"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/txt_faltas"
+        android:textSize="28sp"
+        android:text="Faltas"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="16dp"/>
+
+    <ListView
+        android:id="@+id/lista_faltas_alumnos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_falta_alumno"
+        android:layout_weight="1"></ListView>
+
+    <Button
+        android:id="@+id/btn_agregar_nuevo_alumno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Agregar Alumno"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-medium"
+        android:background="@drawable/boton_redondeado_rojo"/>
+
+</LinearLayout>

@@ -2,14 +2,12 @@ package com.example.sasistencia;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -32,7 +30,7 @@ public class AlumnoAdapter extends ArrayAdapter<Alumno> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
-            convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.item_estudiante,parent,false);
+            convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.item_estudiante_asistencia,parent,false);
         }
         TextView claveTextView = convertView.findViewById(R.id.txt_clave);
         TextView apellidosTextView = convertView.findViewById(R.id.txt_apellidos);

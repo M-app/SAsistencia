@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white"
     tools:context=".AlumnosFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="ALUMNOS" />
+        android:layout_height="wrap_content"
+        android:text="Seleccione Grado"
+        android:textColor="@color/negro"
+        android:textSize="32sp"
+        android:textStyle="bold"/>
 
-</FrameLayout>
+    <ListView
+        android:id="@+id/lista_grados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"></ListView>
+
+</LinearLayout>

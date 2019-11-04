@@ -1,33 +1,24 @@
 package com.example.sasistencia;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -83,7 +74,7 @@ public class TomarAsistenciaActivity extends AppCompatActivity implements Compou
                 for (DataSnapshot data : dataSnapshot.getChildren()){
                     alumnos.add(data.getValue(Alumno.class));
                 }
-                mAdapter = new AlumnoAdapter(TomarAsistenciaActivity.this,R.layout.item_estudiante,alumnos,FECHA);
+                mAdapter = new AlumnoAdapter(TomarAsistenciaActivity.this,R.layout.item_estudiante_asistencia,alumnos,FECHA);
                 mListaAlumnos.setAdapter(mAdapter);
             }
             @Override
@@ -96,6 +87,7 @@ public class TomarAsistenciaActivity extends AppCompatActivity implements Compou
             @Override
             public void onClick(View view) {
                 cambiarEstatusAsistencia();
+
                 Intent intent = new Intent(TomarAsistenciaActivity.this,MainActivity.class);
                 startActivity(intent);
             }

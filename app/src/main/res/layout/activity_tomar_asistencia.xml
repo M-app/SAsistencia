@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:transcriptMode="alwaysScroll"
         android:layout_weight="1"
-        tools:listitem="@layout/item_estudiante"></ListView>
+        tools:listitem="@layout/item_estudiante_asistencia"></ListView>
 
     <Button
         android:id="@+id/btn_enviar"

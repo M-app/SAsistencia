@@ -38,10 +38,10 @@ import java.util.List;
 public class ReportesFragment extends Fragment{
 
     private TextView txtFecha;
-    private Button btnCambiarFecha;
     private Button btnCrearReporte;
 
     private String mFecha = "";
+    private String mFechaCorta = "";
 
     private ListView mListaReportes;
     private ReporteAdapter mAdapter;
@@ -61,7 +61,7 @@ public class ReportesFragment extends Fragment{
         // Inflate the layout for this fragment
         reportesRef = FirebaseDatabase.getInstance().getReference("reportes/"+getFechaHoyGuiones());
         mFecha = DateFormat.getDateInstance(DateFormat.FULL).format(Calendar.getInstance().getTime());
-
+        mFechaCorta = DateFormat.getDateInstance(DateFormat.SHORT).format(Calendar.getInstance().getTime());
         View view = inflater.inflate(R.layout.fragment_reportes, container, false);
 
         txtFecha = view.findViewById(R.id.txt_reporte_fecha);
@@ -89,15 +89,13 @@ public class ReportesFragment extends Fragment{
                 Reporte reporte = (Reporte) adapterView.getItemAtPosition(i);
                 Intent intent = new Intent(getActivity(),TomarAsistenciaActivity.class);
                 intent.putExtra("EXTRA_NOMBRE_GRADO",Grados.getIdByGrado(reporte.getNombreGrado()));
-                intent.putExtra("EXTRA_FECHA",mFecha);
+                intent.putExtra("EXTRA_FECHA",mFechaCorta);
                 startActivity(intent
                 );
             }
         });
         return view;
     }
-
-
 
     ValueEventListener gradosListener = new ValueEventListener() {
         @Override
