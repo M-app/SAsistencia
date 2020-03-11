@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.sasistencia.login.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -42,7 +43,7 @@ public class EscritorioFragment extends Fragment {
     }
 
     private void abrirLoginActivity(){
-        Intent intent = new Intent(getActivity(),LoginActivity.class);
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
         startActivity(intent);
     }
 

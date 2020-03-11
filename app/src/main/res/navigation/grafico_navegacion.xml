@@ -11,12 +11,12 @@
         tools:layout="@layout/fragment_reportes" />
     <fragment
         android:id="@+id/alumnos_fragment"
-        android:name="com.example.sasistencia.AlumnosFragment"
+        android:name="com.example.sasistencia.mostrar_grados.MostrarGradosFragment"
         android:label="fragment_alumnos"
         tools:layout="@layout/fragment_alumnos" />
     <fragment
         android:id="@+id/mensajes_fragment"
-        android:name="com.example.sasistencia.MensajesFragment"
+        android:name="com.example.sasistencia.mensajes.MensajesFragment"
         android:label="fragment_mensajes"
         tools:layout="@layout/fragment_mensajes" />
     <fragment

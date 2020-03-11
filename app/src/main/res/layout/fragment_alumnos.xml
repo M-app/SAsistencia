@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@android:color/white"
-    tools:context=".AlumnosFragment">
+    tools:context=".mostrar_grados.MostrarGradosFragment">
 
     <TextView
         android:layout_width="match_parent"

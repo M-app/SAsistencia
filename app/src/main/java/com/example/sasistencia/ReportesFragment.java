@@ -1,25 +1,23 @@
 package com.example.sasistencia;
 
 
-import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.sasistencia.domain.NombresGrados;
+import com.example.sasistencia.seleccionar_grado.SeleccionarGradoActivity;
+import com.example.sasistencia.tomar_asistencia.TomarAsistenciaActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -72,7 +70,7 @@ public class ReportesFragment extends Fragment{
         btnCrearReporte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),MainActivity.class);
+                Intent intent = new Intent(getActivity(), SeleccionarGradoActivity.class);
                 startActivity(intent);
             }
         });
@@ -87,8 +85,8 @@ public class ReportesFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Reporte reporte = (Reporte) adapterView.getItemAtPosition(i);
-                Intent intent = new Intent(getActivity(),TomarAsistenciaActivity.class);
-                intent.putExtra("EXTRA_NOMBRE_GRADO",Grados.getIdByGrado(reporte.getNombreGrado()));
+                Intent intent = new Intent(getActivity(), TomarAsistenciaActivity.class);
+                intent.putExtra("EXTRA_NOMBRE_GRADO", NombresGrados.getIdGradoByNombre(reporte.getNombreGrado()));
                 intent.putExtra("EXTRA_FECHA",mFechaCorta);
                 startActivity(intent
                 );

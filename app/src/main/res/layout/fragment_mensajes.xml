@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MensajesFragment">
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".mensajes.MensajesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="MENSAJES" />
+        android:layout_height="wrap_content"
+        android:text="Alumnos Faltantes de Hoy"
+        android:textColor="@color/negro"
+        android:textSize="32sp"
+        android:textStyle="bold"/>
 
-</FrameLayout>
+    <ExpandableListView
+        android:id="@+id/lista_expandible_mensajes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"></ExpandableListView>
+
+    <Button
+        android:id="@+id/btn_notificar"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:text="Notificar"
+        android:background="@drawable/boton_redondeado_rojo"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -14,8 +14,13 @@
         <item>Tercero</item>
     </string-array>
     <string-array name="lista_bachilleratos">
-        <item>Cuarto</item>
-        <item>Quinto</item>
+        <item>Cuarto Biológicas</item>
+        <item>Cuarto CCyLL</item>
+        <item>Cuarto Diseño</item>
+        <item>Cuarto Computación</item>
+        <item>Quinto CCyLL</item>
+        <item>Quinto Biológicas</item>
+        <item>Quinto Compu</item>
     </string-array>
     <string-array name="lista_magisterios">
         <item>Cuarto</item>

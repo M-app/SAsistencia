@@ -21,10 +21,6 @@ import java.util.Calendar;
 
 public class AdminActivity extends AppCompatActivity {
 
-    // FECHA PARA REPORTES
-    private String mFechaActualCorta = "";
-    private String mFechaActualLarga = "";
-    // FIN FECHA REPORTES
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

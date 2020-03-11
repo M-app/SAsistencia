@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frag_detalle_alumno"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
     android:padding="16dp"
-    tools:context=".DetalleAlumnoFragment">
+    tools:context=".detalle_alumno.DetalleAlumnoFragment">
 
-    <TextView
-        android:id="@+id/txt_detalle_alumno_clave"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="Clave:"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/txt_detalle_alumno_clave"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,6 +45,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="@color/negro"
+            android:hint="Nombres"
             android:textSize="24sp"
             android:layout_marginBottom="16dp"
             android:layout_marginRight="16dp"
@@ -50,6 +69,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="24sp"
+            android:hint="Apellidos"
             android:textColor="@color/negro"
             android:layout_marginBottom="16dp"
             android:layout_marginRight="16dp"
@@ -74,6 +94,8 @@
             android:textStyle="bold"
             android:textColor="@color/negro"
             android:textSize="24sp"
+            android:hint="Teléfono"
+            android:inputType="phone"
             android:layout_marginBottom="16dp"
             android:layout_marginRight="16dp"
             android:layout_weight="1"/>
@@ -110,9 +132,9 @@
         android:id="@+id/btn_agregar_nuevo_alumno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Agregar Alumno"
-        android:textColor="@android:color/white"
+        android:background="@drawable/boton_redondeado_rojo"
         android:fontFamily="sans-serif-medium"
-        android:background="@drawable/boton_redondeado_rojo"/>
+        android:text="Listo"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>
