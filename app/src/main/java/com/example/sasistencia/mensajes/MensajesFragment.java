@@ -2,6 +2,11 @@ package com.example.sasistencia.mensajes;
 
 
 import android.Manifest;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
@@ -105,9 +110,9 @@ public class MensajesFragment extends Fragment implements MensajesView{
                     enviarMensaje(alumno.getTelefono()+"",alumno.getNombres() + " " + alumno.getApellidos());
                 for (Alumno alumno : terceroBasico)
                     enviarMensaje(alumno.getTelefono()+"",alumno.getNombres() + " " + alumno.getApellidos());
-                for (Alumno alumno : cuartoBiologicas)
-                    enviarMensaje(alumno.getTelefono()+"",alumno.getNombres() + " " + alumno.getApellidos());
                 for (Alumno alumno : cuartoCCyLL)
+                    enviarMensaje(alumno.getTelefono()+"",alumno.getNombres() + " " + alumno.getApellidos());
+                for (Alumno alumno : cuartoBiologicas)
                     enviarMensaje(alumno.getTelefono()+"",alumno.getNombres() + " " + alumno.getApellidos());
                 for (Alumno alumno : cuartoDisenio)
                     enviarMensaje(alumno.getTelefono()+"",alumno.getNombres() + " " + alumno.getApellidos());
@@ -141,6 +146,8 @@ public class MensajesFragment extends Fragment implements MensajesView{
         super.onStop();
         presenter.onStop();
     }
+
+
 
     private void llenarFaltantes(){
         presenter.getAlumnosPrimeroBasico();
@@ -194,17 +201,90 @@ public class MensajesFragment extends Fragment implements MensajesView{
     private void enviarMensaje(String numero, String nombre){
         if(!checkPermission(Manifest.permission.SEND_SMS)){
             ActivityCompat.requestPermissions(getActivity(),
-                                                new String[]{Manifest.permission.SEND_SMS},ENVIAR_MENSAJE_SMS);
+                                                new String[]{Manifest.permission.SEND_SMS,
+                                                            Manifest.permission.READ_PHONE_STATE},ENVIAR_MENSAJE_SMS);
         }
-        if (checkPermission(Manifest.permission.SEND_SMS)){
+        if (checkPermission(Manifest.permission.SEND_SMS) && checkPermission(Manifest.permission.READ_PHONE_STATE)){
             SmsManager manager = SmsManager.getDefault();
+            PendingIntent sendPI;
+            String SENT = "SMS_SENT";
+            sendPI = PendingIntent.getBroadcast(getActivity(),0,new Intent(SENT),0);
             String antesDe = "Buenos días, Colegio Tecnológico de Huehuetenango le saluda, notifica e informa "
                     + "por este medio que su hijo/a ";
-            manager.sendTextMessage("502"+numero,null,antesDe + nombre
-                    + " no asistió a clases en la presente fecha",null,null);
+            String mensajeSuspencionClases = "El Colegio Tecnológico de Huehuetenango, en atención a las instrucciones " +
+                    "brindadas por el Presidente de la República Dr. Alejandro Giammattei. Informamos a la comunidad educativa " +
+                    "que se SUSPENDEN todas las actividades académicas y formativas PRESENCIALES a partir del lunes 16 de marzo " +
+                    "de 2020. Exhortamos a toda la población a seguir todas las recomendaciones brindadas por el MSPAS, " +
+                    "así como del gobierno central. ";
+            ArrayList<String> mensajesArray = manager.divideMessage(mensajeSuspencionClases);
+            try{
+                manager.sendMultipartTextMessage(numero,null,mensajesArray,null,null);
+
+                Toast.makeText(getActivity(),"Mensaje Enviado",Toast.LENGTH_LONG).show();
+            }catch (Exception ex){
+                Toast.makeText(getActivity(),"Error: " + ex.getMessage(),Toast.LENGTH_LONG).show();
+
+            }
+            //manager.sendTextMessage(numero,null,mensajeSuspencionClases,sendPI,null);
         }else{
             Toast.makeText(getActivity(),"Permiso Denegado",Toast.LENGTH_LONG);
         }
+    }
+
+    private void enviarSMS(String numero, String mensaje){
+        String ENVIADO = "SMS_SENT";
+        String ENTREGADO = "SMS_DELIVERED";
+
+        PendingIntent enviadoPI = PendingIntent.getBroadcast(getActivity(),0,
+                new Intent(ENVIADO),0);
+
+        PendingIntent entregadoPI = PendingIntent.getBroadcast(getActivity(),0,
+                new Intent(ENTREGADO),0);
+
+        getActivity().registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                switch (getResultCode()){
+                    case -1:
+                        Toast.makeText(getActivity(),"Mensaje Enviado",
+                                Toast.LENGTH_LONG).show();
+                        break;
+                    case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
+                        Toast.makeText(getActivity(),"Fallo Genérico",
+                                Toast.LENGTH_LONG).show();
+                        break;
+                    case SmsManager.RESULT_ERROR_NO_SERVICE:
+                        Toast.makeText(getActivity(), "No hay servicio",
+                                Toast.LENGTH_SHORT).show();
+                        break;
+                    case SmsManager.RESULT_ERROR_NULL_PDU:
+                        Toast.makeText(getActivity(), "PDU null",
+                                Toast.LENGTH_SHORT).show();
+                        break;
+                    case SmsManager.RESULT_ERROR_RADIO_OFF:
+                        Toast.makeText(getActivity(), "Radio apagada",
+                                Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        },new IntentFilter(ENVIADO));
+
+        getActivity().registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                switch (getResultCode()){
+                    case -1: // getActivity.RESULT_OK
+                        Toast.makeText(getActivity(),"MENSAJE ENTREGADO",Toast.LENGTH_SHORT)
+                                .show();
+                        break;
+                    case 0: // getAcitivity.RESULT_CANCELED
+                        Toast.makeText(getActivity(),"MENSAJE NO ENTREGADO", Toast.LENGTH_SHORT)
+                                .show();
+                }
+            }
+        },new IntentFilter(ENTREGADO));
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(numero,null,mensaje,enviadoPI,entregadoPI);
     }
 
     public boolean checkPermission(String permission){
