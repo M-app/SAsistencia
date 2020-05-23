@@ -56,7 +56,7 @@ Ya que se almacena la asistencia de los estudiantes cada día de una manera estr
 
 ![Asistencia](/imagenes/tomarAsistencia.jpeg)
 ### Ver Reporte de Asistencia
-* Los ver que reportes ya están listos y quien los ha creado
+* Podemos ver que reportes ya están listos y que usuario los ha creado
 
 ![Reportes](/imagenes/verReportes.jpg)
 ![Varios Reportes](/imagenes/variosReportesMismoTiempo.jpeg)
