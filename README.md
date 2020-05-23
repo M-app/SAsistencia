@@ -34,41 +34,41 @@ Ya que se almacena la asistencia de los estudiantes cada día de una manera estr
 
 ## Capturas de la Aplicación
 ### Crear una Cuenta
-![Registro](/imagenes/registro.jpg)
+![Registro](/imagenes/registro.jpeg)
 ### Inicio de Sesión
-![Iniciar Sesión](/imagenes/iniciarSesion.jpg)
+![Iniciar Sesión](/imagenes/iniciarSesion.jpeg)
 ### Listado de Grados
-![Listado de Grados](/imagenes/variosGrados.jpg)
+![Listado de Grados](/imagenes/variosGrados.jpeg)
 ### Listado de Alumnos
-![Alumnos](/imagenes/listaAlumnos.jpg)
+![Alumnos](/imagenes/listaAlumnos.jpeg)
 ### Agregar Alumnos
-![Nuevo Alumno](/imagenes/agregarAlumnos.jpg)
+![Nuevo Alumno](/imagenes/agregarAlumnos.jpeg)
 ### Quitar Alumnos
-![Quitar Alumnos](/imagenes/eliminarAlumnos.jpg)
+![Quitar Alumnos](/imagenes/eliminarAlumnos.jpeg)
 ### Modificar Alumnos
-![Modificar Alumnos](/imagenes/modificarAlumnos.jpg)
+![Modificar Alumnos](/imagenes/modificarAlumnos.jpeg)
 ### Crear Reportes de Assitencia
-![Reportes](/imagenes/crearReporteAsistencia.jpg)
+![Reportes](/imagenes/crearReporteAsistencia.jpeg)
 ### Tomar Asistencia
 * Solo se deben marcar las inasistencias
 * Las inasistencias de cada grado quedan guardadas
 * Se puede consultar el reporte de asistencia de cualquier fecha
 
-![Asistencia](/imagenes/tomarAsistencia.jpg)
+![Asistencia](/imagenes/tomarAsistencia.jpeg)
 ### Ver Reporte de Asistencia
 * Los ver que reportes ya están listos y quien los ha creado
 
 ![Reportes](/imagenes/verReportes.jpg)
-![Varios Reportes](/imagenes/variosReportesMismoTiempo.jpg)
+![Varios Reportes](/imagenes/variosReportesMismoTiempo.jpeg)
 
 ### Ver Faltas de Alumnos
-![Faltas Alumnos](/imagenes/verFaltasAlumnos.jpg)
+![Faltas Alumnos](/imagenes/verFaltasAlumnos.jpeg)
 
 ### Ver Faltas de Todos los Grados
 
-![Faltas Grado](/imagenes/verFaltantesGrado.jpg)
-![Faltas Grado](/imagenes/verFaltantesVariosGrados.jpg)
+![Faltas Grado](/imagenes/verFaltantesGrado.jpeg)
+![Faltas Grado](/imagenes/verFaltantesVariosGrados.jpeg)
 
 ### Notificar Faltas A Encargados o Padres de Familia
-![Notificar](/imagenes/enviarSMS.jpg)
+![Notificar](/imagenes/enviarSMS.jpeg)
 
